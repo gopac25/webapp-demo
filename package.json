@@ -1,0 +1,16 @@
+{
+  "name": "loginapp",
+  "version": "1.0.0",
+  "description": "Angular Basic Learning App",
+  "main": "index.html",
+  "scripts": {
+    "dev": "http-server -p 3000"
+  },
+  "author": "Vignaz",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/animations": "^7.1.1",
+    "@angular/cdk": "^7.1.1",
+    "@angular/material": "^7.1.1"
+  }
+}
