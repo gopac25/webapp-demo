@@ -1,0 +1,38 @@
+<h1>View All Employees</h1>
+<br/>
+<div class="row">
+	<div class="col-md-1"></div>
+	<div class="col-md-1">
+		<p>Search :</p>
+	</div>
+	<div class="col-md-6">
+		<input type="text" name="search" ng-model="employeeSearch">
+	</div>
+</div>
+<br/>
+<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+	<thead>
+		<tr>
+			<th>GPF/CPS No.</th>
+			<th>Name</th>
+			<th>DOB</th>
+			<th>DOJ</th>
+			<th>DOR</th>
+			<th>Current Working Place</th>
+			<th>Aadhar No</th>
+			<th>Contact No</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="employee in employees | filter:employeeSearch |orderBy:dob">
+			<td>{{employee.gpfcpsno}}</td>
+			<td>{{employee.employeename}}</td>
+			<td>{{employee.dob | date :  "dd-MM-y"}}</td>
+			<td>{{employee.doj | date :  "dd-MM-y"}}</td>
+			<td>{{employee.dor | date :  "dd-MM-y"}}</td>
+			<td>{{employee.officename+','+employee.taluk}}</td>
+			<td>{{employee.aadhar}}</td>
+			<td>{{employee.phone}}</td>
+		</tr>
+	</tbody>
+</table>

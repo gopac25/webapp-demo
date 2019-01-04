@@ -1,0 +1,119 @@
+
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+	<li class="breadcrumb-item">
+		<a href="<?php echo $link;  ?>dashboard">Dashboard</a>
+	</li>
+	<li class="breadcrumb-item active">Add Employee</li>
+	<li class="breadcrumb-item active">
+	</li>
+</ol>
+<div class="row">
+	<div class="col-lg-6">
+		<form id="addEmp" class="form-horizontal" method="POST">
+			<div class="form-group">
+				<label for="gpfcpsno" class="col-md-7 control-label">GPF/CPS NO</label>
+				<div class="col-md-10">
+					<input type="text" class="form-control" style="display: inline-block;width: auto;" name="gpfcpsno" id="gpfcpsno" placeholder="6753627/GA" required>
+					<select class="form-control" name="type" id="type" style="display: inline-block;width: auto;" required>
+						<option value="GPF">GPF</option>
+						<option value="CPS">CPS</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="employeename" class="col-md-7 control-label">Name of the Employee</label>
+				<div class="col-md-10">
+					<input type="text" class="form-control" name="employeename" id="employeename" placeholder="T.Ravi Chandran" required>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="workingplace" class="col-md-7 control-label">Current Working Place</label>
+				<div class="col-md-10">
+					<select class="form-control" name="workingplace" id="workingplace" required>
+						<?php
+						foreach ($offices as $office) {
+						echo '<option value="'.$office->id.'">'.$office->officename.','.$office->taluk.'</option>';
+					} 
+					?>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="servicedoj" class="col-md-7 control-label">Joining Date of Current Service</label>
+			<div class="col-md-10">
+				<input type="date" class="form-control" name="servicedoj" id="servicedoj" placeholder="Date of Joining" required>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="phone" class="col-md-7 control-label">Contact Number</label>
+			<div class="col-md-10">
+				<input type="number" class="form-control" name="phone" id="phone" placeholder="9868767832" required>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="aadhar" class="col-md-7 control-label">Aadhaar Number</label>
+			<div class="col-md-10">
+				<input type="number" class="form-control" name="aadhar" id="aadhar" placeholder="748623982364" required>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-6">
+		<div class="form-group">
+			<label for="dob" class="col-md-7 control-label">Date of Birth</label>
+			<div class="col-md-10">
+				<input type="date" class="form-control" name="dob" id="dob" placeholder="Date of Birth" required>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="doj" class="col-md-7 control-label">Date of Joining</label>
+			<div class="col-md-10">
+				<input type="date" class="form-control" name="doj" id="doj" placeholder="Date of Joining" required>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="dor" class="col-md-7 control-label">Date of Retirement</label>
+			<div class="col-md-10">
+				<input type="date" class="form-control" name="dor" id="dor" placeholder="Date of Retirement" required disabled>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="nominee" class="col-md-7 control-label">Nominee Name</label>
+			<div class="col-md-10">
+				<input type="text" class="form-control" name="nominee" id="nominee" placeholder="M.Geetha" required>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="pan" class="col-md-7 control-label">PAN Number</label>
+			<div class="col-md-10">
+				<input type="text" class="form-control" name="pan" id="pan" placeholder="AFOHO0456N" required>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="lastdrawn" class="col-md-7 control-label">Last Drawn Pay Scale</label>
+			<div class="col-md-10">
+				<input type="text" class="form-control" name="lastdrawn" id="lastdrawn" placeholder="Rs. 4.5Lakhs" required>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="form-group">
+				<div class="col-md-offset-2 col-md-10">
+					<button id="addEmployeeBtn" type="submit" class="btn btn-success">Add Employee</button>
+				</div>
+			</div>
+		</div>
+	</div>	
+</form>
+<div id="result" class="alert alert-default"></div>
+</div>
+</div>
+
+<h1>Add Employee</h1>
+<br/>
+<br/>
+{{data}}
+<br/>
+<br/>
+<button class="btn btn-success" ng-click="insertData()">Save Data</button>
