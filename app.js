@@ -31,7 +31,7 @@ app.service('EmployeeService', function($http,$q) {
   this.allEmployees = [];
   this.getAllEmployees = function(){
   	var delay = $q.defer();
-  	$http.get("http://192.168.28.196:5984/customer/europe")
+  	$http.get("http://192.168.40.82:5984/customer/europe")
 	.then(function(response){
 		this.allEmployees = response.data.employees;
 		//console.log(this.allEmployees);
